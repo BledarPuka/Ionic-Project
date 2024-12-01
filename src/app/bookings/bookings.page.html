@@ -10,6 +10,12 @@
 <ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
+      @if (!loadedBookings || !loadedBookings.length) {
+      <ion-col sizeMd="6" offsetMd="3" class="ion-text-center">
+        <p>No Booking Found!</p>
+      </ion-col>
+      }@else{
+
       <ion-col sizeMd="6" offsetMd="3">
         <ion-list>
           @for (booking of loadedBookings; track $index) {
@@ -31,6 +37,7 @@
           }
         </ion-list>
       </ion-col>
+      }
     </ion-row>
   </ion-grid>
 </ion-content>

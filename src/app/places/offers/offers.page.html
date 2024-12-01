@@ -19,18 +19,11 @@
         <ion-list>
           @for (offer of offers; track $index) {
           <ion-item-sliding #slidingItem>
-            <ion-item [routerLink]="['/', 'places', 'offers', offer.id]">
-              <ion-thumbnail slot="start">
-                <ion-img [src]="offer.imageUrl"></ion-img>
-              </ion-thumbnail>
-              <ion-label>
-                <h1>{{ offer.title }}</h1>
-              </ion-label>
-            </ion-item>
+            <app-offer-item [offer]="offer"></app-offer-item>
             <ion-item-options>
               <ion-item-option
                 color="primary"
-                (click)="onEdit(offer.id,slidingItem)"
+                (click)="onEdit(offer.id ?? '', slidingItem)"
               >
                 <ion-icon name="pencil-outline" slot="icon-only"></ion-icon>
               </ion-item-option>
